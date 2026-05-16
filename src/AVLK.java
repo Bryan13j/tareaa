@@ -99,6 +99,29 @@ class AVLK {
         }
     }
 
+    //Busca y retorna el i-esimo elemento menor almacenado
+    private int contador = 0;
+    private int resutado = -1;
+    private int Iesimo(int i) {
+        contador =0;
+        resutado =-1;
+        recorrer(laRaiz, i);
+        return resutado;
+    }
+    private void recorrer(NodoAVLK r, int i){
+        if(r == null || contador >= i){
+            return;
+        }
+
+        recorrer(r.rchild, i);
+        contador++;
+        if(contador == i){
+            resutado = r.elemento;
+            return;
+        }
+        recorrer(r.lchild, i);
+    }
+
     //rotacion doble hacia la izquierda
     private NodoAVLK roteDerIzq(NodoAVLK a) {
         a.rchild = roteDer(a.rchild);

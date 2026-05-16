@@ -1,7 +1,7 @@
-class AVL {
+class AVLK {
     private NodoAVL laRaiz;
 
-    AVL() {
+    AVLK() {
         laRaiz = null;
     }
     private boolean masAlto;
@@ -52,7 +52,7 @@ class AVL {
         return a;
     }
 
-    //balancear el avl si esta desballanceado hacia la izquierda
+    //balancear el avl si esta desbalanceado hacia la izquierda
     private NodoAVL balanceaIzq(NodoAVL a) {
         boolean masBajo = true;
         switch(a.balan){

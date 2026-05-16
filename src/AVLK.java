@@ -81,6 +81,23 @@ class AVLK {
         }
         return a;
     }
+    //busca si el elemento k pertenece al AVLK
+    public boolean Buscar(int k){
+        return Buscar(laRaiz, k);
+    }
+    private boolean Buscar(NodoAVLK a, int k){
+        if (a == null){
+            return false;
+        }
+        if (k == a.elemento) {
+            return true;
+        }
+        else if (k < a.elemento){
+            return Buscar(a.rchild, k);
+        } else{
+            return Buscar(a.lchild, k);
+        }
+    }
 
     //rotacion doble hacia la izquierda
     private NodoAVLK roteDerIzq(NodoAVLK a) {

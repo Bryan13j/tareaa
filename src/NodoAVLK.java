@@ -1,10 +1,10 @@
-class NodoAVL {
-    NodoAVL lchild;
+class NodoAVLK {
+    NodoAVLK lchild;
     int elemento;
     short balan;
-    NodoAVL rchild;
+    NodoAVLK rchild;
 
-    NodoAVL(int elemento, NodoAVL lchild, NodoAVL rchild) {
+    NodoAVLK(int elemento, NodoAVLK lchild, NodoAVLK rchild) {
         this.elemento = elemento;
         this.lchild = lchild;
         this.rchild = rchild;

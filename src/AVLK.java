@@ -1,5 +1,5 @@
 class AVLK {
-    private NodoAVL laRaiz;
+    private NodoAVLK laRaiz;
 
     AVLK() {
         laRaiz = null;
@@ -11,8 +11,8 @@ class AVLK {
         laRaiz = InsertaenAVL(laRaiz, elemento);
         masAlto=false;
     }
-    private NodoAVL InsertaenAVL(NodoAVL a, int elemento){
-        if(a == null){ masAlto = true; return new NodoAVL(elemento,null,null); }
+    private NodoAVLK InsertaenAVL(NodoAVLK a, int elemento){
+        if(a == null){ masAlto = true; return new NodoAVLK(elemento,null,null); }
         else if (elemento < a.elemento){
             a.lchild= InsertaenAVL(a.lchild,elemento);
             if(masAlto)
@@ -34,7 +34,7 @@ class AVLK {
     }
 
     //balancear el avl si esta desbalanceado hacia la derecha
-    private NodoAVL balanceaDer(NodoAVL a){
+    private NodoAVLK balanceaDer(NodoAVLK a){
         if(a.rchild.balan==-1){
             a.balan=a.rchild.balan=0;
             a = roteIzq(a);
@@ -53,7 +53,7 @@ class AVLK {
     }
 
     //balancear el avl si esta desbalanceado hacia la izquierda
-    private NodoAVL balanceaIzq(NodoAVL a) {
+    private NodoAVLK balanceaIzq(NodoAVLK a) {
         boolean masBajo = true;
         switch(a.balan){
             case 1: if(a.lchild.balan != -1) {
@@ -83,27 +83,27 @@ class AVLK {
     }
 
     //rotacion doble hacia la izquierda
-    private NodoAVL roteDerIzq(NodoAVL a) {
+    private NodoAVLK roteDerIzq(NodoAVLK a) {
         a.rchild = roteDer(a.rchild);
         return roteIzq(a);
     }
     //rotacion doble hacia la derecha
-    private NodoAVL roteIzqDer(NodoAVL a) {
+    private NodoAVLK roteIzqDer(NodoAVLK a) {
         a.lchild = roteIzq(a.lchild);
         return roteDer(a);
     }
 
     //rotacion a la izquierda
-    private NodoAVL roteIzq(NodoAVL a){
-        NodoAVL temp = a.rchild;
+    private NodoAVLK roteIzq(NodoAVLK a){
+        NodoAVLK temp = a.rchild;
         a.rchild= temp.lchild;
         temp.lchild= a;
         return temp;
     }
 
     //rotacion a la derecha
-    private NodoAVL roteDer(NodoAVL a) {
-        NodoAVL temp = a.lchild;
+    private NodoAVLK roteDer(NodoAVLK a) {
+        NodoAVLK temp = a.lchild;
         a.lchild= temp.rchild;
         temp.rchild= a;
         return temp;
